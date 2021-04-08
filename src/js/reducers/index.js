@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, DATA_LOADED } from "../constants/action-types";
+import { ADD_ARTICLE, DATA_LOADED,DATA_ERRORED, API_ERRORED } from "../constants/action-types";
 
 const initialState = {
     articles :[],
@@ -12,7 +12,8 @@ function rootReducer(state = initialState, action){
             return {...state,articles:state.articles.concat(action.payload)};
 
         case DATA_LOADED:
-            return {...state, remoteArticles:state.remoteArticles.concat(action.payload)}        
+            return {...state, remoteArticles:state.remoteArticles.concat(action.payload)}     
+            
         default:
             return state;
     }
